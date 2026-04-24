@@ -15,24 +15,114 @@ if (navToggle && navMenu) {
   });
 }
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.18 }
-);
+const revealNodes = document.querySelectorAll(".fade-up");
 
-document.querySelectorAll(".fade-up").forEach((node) => observer.observe(node));
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.18 }
+  );
+
+  revealNodes.forEach((node) => revealObserver.observe(node));
+} else {
+  revealNodes.forEach((node) => node.classList.add("in-view"));
+}
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const workflowControllers = new Map();
+
+const setWorkflowState = (workflow, activeIndex) => {
+  const steps = Array.from(workflow.querySelectorAll("[data-workflow-step]"));
+  if (!steps.length) {
+    return;
+  }
+
+  steps.forEach((step, index) => {
+    step.classList.toggle("is-complete", index < activeIndex);
+    step.classList.toggle("is-current", index === activeIndex);
+  });
+
+  const progress = steps.length > 1 ? (activeIndex / (steps.length - 1)) * 100 : 100;
+  workflow.style.setProperty("--workflow-progress", `${progress}%`);
+};
+
+document.querySelectorAll("[data-workflow]").forEach((workflow) => {
+  const steps = Array.from(workflow.querySelectorAll("[data-workflow-step]"));
+  if (!steps.length) {
+    return;
+  }
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    setWorkflowState(workflow, steps.length - 1);
+    return;
+  }
+
+  const intervalMs = Number(workflow.dataset.workflowInterval || 1600);
+  let activeIndex = 0;
+  let timerId = null;
+
+  const tick = () => {
+    setWorkflowState(workflow, activeIndex);
+    activeIndex = (activeIndex + 1) % steps.length;
+  };
+
+  workflowControllers.set(workflow, {
+    start() {
+      if (timerId !== null) {
+        return;
+      }
+
+      tick();
+      timerId = window.setInterval(tick, intervalMs);
+    },
+    stop() {
+      if (timerId === null) {
+        return;
+      }
+
+      window.clearInterval(timerId);
+      timerId = null;
+    }
+  });
+});
+
+if (workflowControllers.size && "IntersectionObserver" in window && !prefersReducedMotion) {
+  const workflowObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const controller = workflowControllers.get(entry.target);
+        if (!controller) {
+          return;
+        }
+
+        if (entry.isIntersecting) {
+          controller.start();
+        } else {
+          controller.stop();
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  workflowControllers.forEach((_, workflow) => workflowObserver.observe(workflow));
+}
 
 const form = document.querySelector("[data-contact-form]");
 const message = document.querySelector("[data-form-message]");
 
 if (form && message) {
+  const storageKey = "vaaliAdvisoryLeads";
+  const legacyStorageKey = "ledgerpeakLeads";
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -54,16 +144,21 @@ if (form && message) {
       return;
     }
 
-    const submissions = JSON.parse(localStorage.getItem("ledgerpeakLeads") || "[]");
-    submissions.push({
+    const existingSubmissions = JSON.parse(
+      localStorage.getItem(storageKey) || localStorage.getItem(legacyStorageKey) || "[]"
+    );
+
+    existingSubmissions.push({
       ...fields,
       submittedAt: new Date().toISOString()
     });
-    localStorage.setItem("ledgerpeakLeads", JSON.stringify(submissions));
+
+    localStorage.setItem(storageKey, JSON.stringify(existingSubmissions));
+    localStorage.removeItem(legacyStorageKey);
 
     form.reset();
     message.textContent =
-      "Thanks. Your inquiry has been captured and the team will follow up within one business day.";
+      "Thanks. We have captured your context and will respond within one business day.";
     message.className = "form-message success";
   });
 }
