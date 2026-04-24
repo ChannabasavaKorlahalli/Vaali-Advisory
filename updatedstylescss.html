@@ -1,0 +1,159 @@
+﻿:root {
+  color-scheme: dark;
+  --bg: #07101d;
+  --bg-deep: #050b15;
+  --surface: rgba(11, 24, 43, 0.86);
+  --text: #f5f0e8;
+  --muted: #9faec1;
+  --brand: #d9b06a;
+  --cool: #90a8d5;
+  --header-bg: rgba(5, 11, 21, 0.72);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --max-width: 1180px;
+}
+
+
+/* LIGHT MODE */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #eef3f8;
+  --bg-deep: #dfe7f1;
+  --text: #16283e;
+  --muted: #58687b;
+  --header-bg: rgba(248, 250, 252, 0.8);
+  --header-border: rgba(22, 40, 62, 0.08);
+}
+
+
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--header-border);
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+}
+
+
+.nav-wrap {
+  width: min(var(--max-width), calc(100% - 2rem));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 0;
+}
+
+
+/* 🔥 LOGO FIX (NO BORDER, CLEAN, BIGGER) */
+.brand {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+
+.brand-logo {
+  width: clamp(150px, 12vw, 190px);
+  height: auto;
+  object-fit: contain;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+
+/* NAV */
+.nav-links {
+  display: flex;
+  gap: 1.3rem;
+}
+
+
+.nav-links a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+
+/* BUTTON */
+.button {
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.button.primary {
+  background: linear-gradient(135deg, #f0ca8d, #d9b06a);
+  color: #0b1321;
+}
+
+
+/* SECTIONS */
+section {
+  padding: 4rem 0;
+}
+
+
+/* TEXT */
+h1, h2, h3 {
+  font-family: "Sora", sans-serif;
+  margin: 0;
+}
+
+
+p {
+  color: var(--muted);
+}
+
+
+/* MOBILE */
+@media (max-width: 780px) {
+  .brand-logo {
+    width: 130px;
+  }
+
+
+  .nav-links {
+    display: none;
+  }
+}
