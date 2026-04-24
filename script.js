@@ -169,7 +169,7 @@ const message = document.querySelector("[data-form-message]");
 
 if (form && message) {
   const storageKey = "vaaliAdvisoryLeads";
-  const legacyStorageKey = "ledgerpeakLeads";
+  const legacyStorageKey = "VaaliAdvisoryLeads";
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
