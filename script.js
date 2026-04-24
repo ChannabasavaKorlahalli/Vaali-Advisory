@@ -1,3 +1,17 @@
+// Back to Top button show/hide logic
+document.addEventListener("DOMContentLoaded", function () {
+  const backToTopBtn = document.getElementById("backToTop");
+  if (!backToTopBtn) return;
+  function toggleBackToTop() {
+    if (window.scrollY > 40) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  }
+  toggleBackToTop();
+  window.addEventListener("scroll", toggleBackToTop);
+});
 const root = document.documentElement;
 const themeToggle = document.querySelector("[data-theme-toggle]");
 
