@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Vaali Advisory</title>
-  <meta name="description" content="Contact Vaali Advisory for finance, growth, or integrated working sessions built for web3 startups.">
+  <meta name="description" content="Work with Vaali Advisory on finance systems and growth execution for web3 startups.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Sora:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
   <script>
     (() => {
       try {
@@ -25,22 +25,21 @@
   <div class="page-shell">
     <header class="site-header">
       <div class="nav-wrap">
-        <a class="brand" href="index.html" aria-label="Vaali Advisory home">
+        <a class="brand" href="home.html" aria-label="Vaali Advisory home">
           <img class="brand-logo" src="assets/vaali-logo-final.png" alt="Vaali Advisory">
         </a>
         <div class="nav-actions">
           <nav class="nav-links" data-nav-menu>
-            <a href="index.html">Home</a>
+            <a href="home.html">Home</a>
             <a href="finance.html">Finance</a>
             <a href="growth.html">Growth</a>
-            <a href="insights.html">Insights</a>
             <a class="active" href="contact.html">Contact</a>
           </nav>
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activate light theme" aria-pressed="false">
-            <span class="theme-toggle__icon" data-theme-icon aria-hidden="true"></span>
-            <span class="theme-toggle__label" data-theme-label>Dark</span>
+          <button class="theme-toggle" type="button" data-theme-toggle>
+            <span class="theme-toggle__icon"></span>
+            <span class="theme-toggle__label">Dark</span>
           </button>
-          <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+          <button class="nav-toggle" type="button" data-nav-toggle>
             <span></span>
             <span></span>
             <span></span>
@@ -50,28 +49,39 @@
     </header>
 
     <main>
+      <!-- HERO (ABOUT + CONTACT) -->
       <section class="page-hero">
         <div class="container contact-grid">
+          
+          <!-- LEFT SIDE -->
           <div class="hero-copy fade-up">
-            <span class="eyebrow">Contact</span>
-            <h1>Tell us whether the pressure is finance, growth, or both.</h1>
-            <p>Share the operating problem as it exists today: the launch that is coming too fast, the close that will not stabilize, the partnership motion that is not converting, or the board and investor pressure building around it.</p>
+            <span class="eyebrow">About / Contact</span>
+            
+            <h1>We fix systems before they fail under scale.</h1>
+            
+            <p>
+              Vaali works with web3 teams where finance breaks or growth doesn’t convert.  
+              The work is focused, system-level, and tied to real operating pressure.
+            </p>
+
             <div class="checklist">
-              <div><p>Finance control for wallet complexity, token policy, reserves, and audit readiness</p></div>
-              <div><p>Growth coordination for launch design, partnerships, BD, and revenue motion</p></div>
-              <div><p>Integrated engagements when commercial ambition and operating discipline need to move together</p></div>
+              <div><p><strong>Finance:</strong> Reconciliation, token policy, controls, audit readiness</p></div>
+              <div><p><strong>Growth:</strong> Incentives, partnerships, BD, revenue systems</p></div>
+              <div><p><strong>Engagement:</strong> Direct work on live problems, not abstract strategy</p></div>
             </div>
           </div>
 
+          <!-- RIGHT SIDE FORM -->
           <div class="contact-card fade-up">
             <form class="contact-form" data-contact-form>
+
               <div class="field-row">
                 <label>
-                  Full name
+                  Name
                   <input type="text" name="name" placeholder="Alex Morgan" required>
                 </label>
                 <label>
-                  Work email
+                  Email
                   <input type="email" name="email" placeholder="alex@company.com" required>
                 </label>
               </div>
@@ -82,55 +92,55 @@
                   <input type="text" name="company" placeholder="Company name" required>
                 </label>
                 <label>
-                  Service area
+                  Focus
                   <select name="service" required>
-                    <option value="">Select one</option>
-                    <option>Finance advisory</option>
-                    <option>Growth advisory</option>
-                    <option>Finance + Growth sprint</option>
-                    <option>Pre-launch strategy</option>
-                    <option>Post-launch reset</option>
+                    <option value="">Select</option>
+                    <option>Finance</option>
+                    <option>Growth</option>
+                    <option>Both</option>
                   </select>
                 </label>
               </div>
 
               <label>
-                Company stage
+                Stage
                 <select name="stage">
                   <option>Pre-launch</option>
-                  <option>Launching now</option>
-                  <option>Post-launch scale-up</option>
-                  <option>Institutionalizing finance</option>
-                  <option>Resetting growth motion</option>
+                  <option>Launching</option>
+                  <option>Scaling</option>
+                  <option>Reset</option>
                 </select>
               </label>
 
               <label>
-                What do you need help with?
-                <textarea name="message" placeholder="Describe the operating pressure, timeline, and what currently feels stuck." required></textarea>
+                Problem
+                <textarea name="message" placeholder="What is breaking right now?" required></textarea>
               </label>
 
-              <p class="field-help">This demo form validates entries in the browser and stores submissions locally on the device for preview workflows.</p>
-              <button class="button primary" type="submit">Request a working session</button>
-              <div class="form-message" data-form-message aria-live="polite"></div>
+              <button class="button primary" type="submit">Start conversation</button>
+              <div class="form-message" data-form-message></div>
             </form>
           </div>
+
         </div>
       </section>
 
+      <!-- EXPECTATIONS -->
       <section>
         <div class="container cards-3">
           <article class="contact-card fade-up">
             <h3>Best fit</h3>
-            <p>Founder-led startups, finance leaders, and operators who need sharper execution rather than a general strategy project.</p>
+            <p>Teams with real pressure, not exploratory projects.</p>
           </article>
+
           <article class="contact-card fade-up">
-            <h3>Response window</h3>
-            <p>Within one business day for new conversations and live operating pressures.</p>
+            <h3>Response</h3>
+            <p>Within one business day.</p>
           </article>
+
           <article class="contact-card fade-up">
-            <h3>Working model</h3>
-            <p>Remote-first sessions built around concrete operating problems, decision points, and next actions.</p>
+            <h3>Format</h3>
+            <p>Working sessions focused on decisions and execution.</p>
           </article>
         </div>
       </section>
@@ -139,19 +149,19 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a class="brand" href="index.html" aria-label="Vaali Advisory home">
+          <a class="brand" href="home.html">
             <img class="brand-logo" src="assets/vaali-logo-final.png" alt="Vaali Advisory">
           </a>
         </div>
         <div class="footer-links">
           <a href="finance.html">Finance</a>
           <a href="growth.html">Growth</a>
-          <a href="insights.html">Insights</a>
           <a href="contact.html">Contact</a>
         </div>
       </div>
     </footer>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

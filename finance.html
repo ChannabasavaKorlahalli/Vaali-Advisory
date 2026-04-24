@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finance | Vaali Advisory</title>
-  <meta name="description" content="Vaali Advisory helps web3 startups fix wallet-to-ledger reporting, token policy, controls, reserve scrutiny, and audit readiness.">
+  <meta name="description" content="Fix finance systems before scale exposes weaknesses. Reconciliation, policy, controls, and audit-ready reporting for web3 companies.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Sora:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <script>
     (() => {
       try {
@@ -19,226 +21,253 @@
       }
     })();
   </script>
+
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="nav-wrap">
-        <a class="brand" href="index.html" aria-label="Vaali Advisory home">
-          <img class="brand-logo" src="assets/vaali-logo-final.png" alt="Vaali Advisory">
-        </a>
-        <div class="nav-actions">
-          <nav class="nav-links" data-nav-menu>
-            <a href="index.html">Home</a>
-            <a class="active" href="finance.html">Finance</a>
-            <a href="growth.html">Growth</a>
-            <a href="insights.html">Insights</a>
-            <a href="contact.html">Contact</a>
-          </nav>
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Activate light theme" aria-pressed="false">
-            <span class="theme-toggle__icon" data-theme-icon aria-hidden="true"></span>
-            <span class="theme-toggle__label" data-theme-label>Dark</span>
-          </button>
-          <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+<div class="page-shell">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="home.html">
+        <img class="brand-logo" src="assets/vaali-logo-final.png" alt="Vaali Advisory">
+      </a>
+
+      <div class="nav-actions">
+        <nav class="nav-links">
+          <a href="home.html">Home</a>
+          <a class="active" href="finance.html">Finance</a>
+          <a href="growth.html">Growth</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <button class="theme-toggle" data-theme-toggle>
+          <span data-theme-label>Dark</span>
+        </button>
+
+        <button class="nav-toggle" data-nav-toggle>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero offer-hero offer-hero--finance">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <span class="eyebrow">Finance</span>
+          <h1>If numbers don’t reconcile, nothing else scales.</h1>
+          <p>Activity grows fast. Structure doesn’t. Finance breaks when wallets, tokens, and reporting don’t resolve into one system.</p>
+
+          <div class="tag-row">
+            <span class="tag">Reconciliation</span>
+            <span class="tag">Token policy</span>
+            <span class="tag">Controls</span>
+            <span class="tag">Audit readiness</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button primary" href="contact.html">Fix finance</a>
+          </div>
+        </div>
+
+        <!-- FIXED SYSTEM -->
+        <div class="workflow-card">
+
+          <div class="workflow-head">
+            <span class="panel-label">System path</span>
+            <h2>From activity → defensible numbers</h2>
+          </div>
+
+          <div class="workflow-3">
+
+            <div class="wf-step">
+              <span>01</span>
+              <h3>Structure</h3>
+              <p>All activity unified into one system.</p>
+            </div>
+
+            <div class="wf-step">
+              <span>02</span>
+              <h3>Control</h3>
+              <p>Ownership, policy, and approvals defined.</p>
+            </div>
+
+            <div class="wf-step">
+              <span>03</span>
+              <h3>Defend</h3>
+              <p>Numbers hold under audit and scrutiny.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAILURE -->
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">Failure signals</span>
+          <h2>How finance breaks.</h2>
+        </div>
+
+        <div class="pressure-grid">
+
+          <article class="pressure-card">
+            <h3>Close drifts</h3>
+            <p>Numbers change after reporting.</p>
+          </article>
+
+          <article class="pressure-card">
+            <h3>Policy unclear</h3>
+            <p>No consistent token treatment.</p>
+          </article>
+
+          <article class="pressure-card">
+            <h3>Ownership blurred</h3>
+            <p>No single source of truth.</p>
+          </article>
+
+          <article class="pressure-card">
+            <h3>Controls missing</h3>
+            <p>Approvals exist, not enforced.</p>
+          </article>
+
+          <article class="pressure-card">
+            <h3>Reserves weak</h3>
+            <p>Balances visible, not provable.</p>
+          </article>
+
+          <article class="pressure-card">
+            <h3>Audit reactive</h3>
+            <p>Structure built under pressure.</p>
+          </article>
+
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="page-hero offer-hero offer-hero--finance">
-        <div class="container hero-grid">
-          <div class="hero-copy fade-up">
-            <span class="eyebrow">Finance</span>
-            <h1>Fix the finance system before the company outruns it.</h1>
-            <p>Web3 teams rarely lose control because they lack activity. They lose control because wallets, exchanges, token mechanics, and reporting obligations never resolve into one defensible operating view.</p>
-            <div class="tag-row">
-              <span class="tag">Wallet-to-ledger clarity</span>
-              <span class="tag">Token policy</span>
-              <span class="tag">Controls and reserves</span>
-              <span class="tag">Audit readiness</span>
-            </div>
-            <div class="hero-actions">
-              <a class="button primary" href="contact.html">Talk to Vaali</a>
-              <a class="button secondary" href="insights.html">Read Finance insights</a>
-            </div>
-          </div>
+    <!-- WHAT VAALI DOES -->
+    <section>
+      <div class="container split-grid">
 
-          <div class="workflow-card workflow-card--finance fade-up" data-workflow data-workflow-interval="1550">
-            <div class="workflow-head">
-              <span class="panel-label">Finance workflow</span>
-              <h2>Fragmented activity to reporting confidence.</h2>
-              <p>Each step removes a reason the team, the board, or the auditor stops trusting the numbers.</p>
+        <div class="detail-card">
+          <span class="panel-label">System build</span>
+          <h2>We turn finance into an operating system.</h2>
+
+          <div class="process-list">
+            <div class="process-step">
+              <h3>Map flows</h3>
+              <p>Wallets, entities, and rails connected.</p>
             </div>
-            <div class="workflow-track">
-              <article class="workflow-step" data-workflow-step>
-                <span class="workflow-index">01</span>
-                <h3>Transactions</h3>
-                <p>Wallets, exchanges, issuers, custodians, and bank rails all speak at once.</p>
-              </article>
-              <article class="workflow-step" data-workflow-step>
-                <span class="workflow-index">02</span>
-                <h3>Reconciliation</h3>
-                <p>Ownership becomes explicit and exceptions stop living in side conversations.</p>
-              </article>
-              <article class="workflow-step" data-workflow-step>
-                <span class="workflow-index">03</span>
-                <h3>Policy</h3>
-                <p>Token issuance, incentives, treasury moves, and reserve treatment get real accounting positions.</p>
-              </article>
-              <article class="workflow-step" data-workflow-step>
-                <span class="workflow-index">04</span>
-                <h3>Controls</h3>
-                <p>Access, approvals, reserves, and evidence retention move from implied to operating discipline.</p>
-              </article>
-              <article class="workflow-step" data-workflow-step>
-                <span class="workflow-index">05</span>
-                <h3>Audit / Board Confidence</h3>
-                <p>The company can defend the story in board rooms, investor meetings, and audit fieldwork.</p>
-              </article>
+
+            <div class="process-step">
+              <h3>Define policy</h3>
+              <p>Token and treasury logic fixed.</p>
+            </div>
+
+            <div class="process-step">
+              <h3>Install controls</h3>
+              <p>Access, approvals, evidence enforced.</p>
+            </div>
+
+            <div class="process-step">
+              <h3>Standardize reporting</h3>
+              <p>One defensible narrative.</p>
             </div>
           </div>
         </div>
-      </section>
 
-      <section>
-        <div class="container">
-          <div class="section-heading fade-up">
-            <div class="section-intro">
-              <span class="eyebrow">Where it breaks</span>
-              <h2>The failure pattern is familiar.</h2>
-              <p>Most teams feel it long before they can explain it: the finance function is working harder, but confidence is not increasing.</p>
-            </div>
-          </div>
+        <div class="detail-card">
+          <span class="panel-label">Outputs</span>
+          <h2>Immediate clarity.</h2>
 
-          <div class="pressure-grid">
-            <article class="pressure-card fade-up">
-              <h3>Close never really closes</h3>
-              <p>Wallet evidence, exchange data, and manual exceptions keep reopening the same reporting period.</p>
-            </article>
-            <article class="pressure-card fade-up">
-              <h3>Token policy lags reality</h3>
-              <p>Issuance, incentives, staking, treasury actions, and impairment are operating faster than accounting conclusions.</p>
-            </article>
-            <article class="pressure-card fade-up">
-              <h3>Controls are implied, not designed</h3>
-              <p>Access, approvals, key actions, reserves, and exceptions exist in practice but not in a credible control model.</p>
-            </article>
-            <article class="pressure-card fade-up">
-              <h3>Reserve reporting feels narrative-led</h3>
-              <p>Stakeholders can see balances, but not the evidentiary path that makes those balances trustworthy.</p>
-            </article>
-            <article class="pressure-card fade-up">
-              <h3>Audit prep starts too late</h3>
-              <p>Teams try to compress months of missing structure into the weeks right before fieldwork.</p>
-            </article>
-            <article class="pressure-card fade-up">
-              <h3>Board trust depends on translation</h3>
-              <p>The company has activity, but no clean line from operational reality to a defensible financial narrative.</p>
-            </article>
-          </div>
+          <ul>
+            <li>Reconciled balances</li>
+            <li>Defined token accounting</li>
+            <li>Control ownership model</li>
+            <li>Audit-ready reporting</li>
+          </ul>
         </div>
-      </section>
 
-      <section>
-        <div class="container split-grid">
-          <div class="detail-card fade-up">
-            <span class="panel-label">What Vaali changes</span>
-            <h2>We build a finance operating system the business can actually run on.</h2>
-            <div class="process-list">
-              <div class="process-step">
-                <h3>See the flows</h3>
-                <p>Map wallets, exchanges, issuers, banking rails, and entity boundaries into one reporting architecture.</p>
-              </div>
-              <div class="process-step">
-                <h3>Lock the positions</h3>
-                <p>Write the accounting logic for token issuance, incentives, treasury actions, reserves, and edge-case events.</p>
-              </div>
-              <div class="process-step">
-                <h3>Design the controls</h3>
-                <p>Turn approvals, access, exceptions, and evidence capture into an actual operating model.</p>
-              </div>
-              <div class="process-step">
-                <h3>Package the narrative</h3>
-                <p>Give leadership, investors, and auditors a coherent reporting story that stands up under scrutiny.</p>
-              </div>
-            </div>
-          </div>
+      </div>
+    </section>
 
-          <div class="detail-card fade-up">
-            <span class="panel-label">What you get</span>
-            <h2>Outputs that reduce drag immediately.</h2>
-            <ul>
-              <li>Reconciliation ownership across wallets, exchanges, custodians, and fiat accounts.</li>
-              <li>Clear policy positions for token issuance, incentives, staking, treasury moves, and impairment.</li>
-              <li>Controls around access, approvals, reserves, exceptions, and evidence retention.</li>
-              <li>Board, investor, and auditor-ready reporting packs that stand up under pressure.</li>
-            </ul>
-          </div>
+    <!-- IMPACT -->
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">Within weeks</span>
+          <h2>What changes.</h2>
         </div>
-      </section>
 
-      <section>
-        <div class="container">
-          <div class="section-heading fade-up">
-            <div class="section-intro">
-              <span class="eyebrow">Within a sprint</span>
-              <h2>What changes first.</h2>
-            </div>
-          </div>
+        <div class="cards-3">
+          <article class="summary-card">
+            <strong>Close</strong>
+            <p>Predictable</p>
+          </article>
 
-          <div class="cards-3">
-            <article class="summary-card fade-up">
-              <strong>Close cadence</strong>
-              <p>Fewer surprises at month-end because ownership and evidence routes become explicit.</p>
-            </article>
-            <article class="summary-card fade-up">
-              <strong>Decision quality</strong>
-              <p>Finance leaders stop debating what happened and start making policy, treasury, and reporting decisions faster.</p>
-            </article>
-            <article class="summary-card fade-up">
-              <strong>External confidence</strong>
-              <p>Boards, investors, and auditors see a system that can explain itself without improvisation.</p>
-            </article>
-          </div>
+          <article class="summary-card">
+            <strong>Decisions</strong>
+            <p>Faster</p>
+          </article>
+
+          <article class="summary-card">
+            <strong>Confidence</strong>
+            <p>Defensible</p>
+          </article>
         </div>
-      </section>
 
-      <section>
-        <div class="container">
-          <div class="cta-panel fade-up">
-            <div class="cta-copy">
-              <span class="eyebrow">Finance engagement</span>
-              <h2>If the business is moving faster than the numbers can defend, this is the work to do first.</h2>
-            </div>
-            <div class="cta-actions">
-              <a class="button primary" href="contact.html">Start a Finance conversation</a>
-            </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container">
+
+        <div class="cta-panel">
+          <div>
+            <span class="eyebrow">Finance engagement</span>
+            <h2>If numbers don’t hold, fix this first.</h2>
           </div>
-        </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <a class="brand" href="index.html" aria-label="Vaali Advisory home">
-            <img class="brand-logo" src="assets/vaali-logo-final.png" alt="Vaali Advisory">
+          <a class="button primary" href="contact.html">
+            Start finance work
           </a>
         </div>
-        <div class="footer-links">
-          <a href="finance.html">Finance</a>
-          <a href="growth.html">Growth</a>
-          <a href="insights.html">Insights</a>
-          <a href="contact.html">Contact</a>
-        </div>
+
       </div>
-    </footer>
-  </div>
-  <script src="script.js"></script>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="brand" href="home.html">
+        <img class="brand-logo" src="assets/vaali-logo-final.png">
+      </a>
+
+      <div class="footer-links">
+        <a href="finance.html">Finance</a>
+        <a href="growth.html">Growth</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
