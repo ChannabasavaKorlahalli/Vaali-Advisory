@@ -945,3 +945,17 @@ textarea:focus {
     transform: none;
   }
 }
+.brand-logo {
+  width: clamp(140px, 11vw, 180px); /* bigger logo */
+  height: auto;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
+}
+.brand-logo {
+  width: clamp(140px, 11vw, 180px); /* bigger logo */
+  height: auto;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
+}
