@@ -1,3 +1,51 @@
+const root = document.documentElement;
+const themeToggle = document.querySelector("[data-theme-toggle]");
+
+const getSystemTheme = () =>
+  window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+
+const getActiveTheme = () => root.dataset.theme || getSystemTheme();
+
+const syncThemeToggle = (theme) => {
+  if (!themeToggle) {
+    return;
+  }
+
+  const nextTheme = theme === "light" ? "dark" : "light";
+  const themeLabel = themeToggle.querySelector("[data-theme-label]");
+
+  themeToggle.dataset.themeMode = theme;
+  themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+  themeToggle.setAttribute("aria-label", `Activate ${nextTheme} theme`);
+
+  if (themeLabel) {
+    themeLabel.textContent = theme === "light" ? "Light" : "Dark";
+  }
+};
+
+const applyTheme = (theme, persist = true) => {
+  root.dataset.theme = theme;
+
+  if (persist) {
+    try {
+      localStorage.setItem("vaaliTheme", theme);
+    } catch (error) {
+      // Ignore storage failures and keep the in-memory theme.
+    }
+  }
+
+  syncThemeToggle(theme);
+};
+
+applyTheme(getActiveTheme(), false);
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = getActiveTheme() === "light" ? "dark" : "light";
+    applyTheme(nextTheme);
+  });
+}
+
 const navToggle = document.querySelector("[data-nav-toggle]");
 const navMenu = document.querySelector("[data-nav-menu]");
 
