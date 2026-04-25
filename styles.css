@@ -880,7 +880,7 @@ h3 {
   align-self: start;
 }
 
-.workflow-card--growth .workflow-head {
+.workflow-card--growth .workflow-head.compact {
   margin-bottom: 0.45rem;
 }
 
