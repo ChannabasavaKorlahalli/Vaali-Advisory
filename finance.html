@@ -44,7 +44,8 @@
         </nav>
 
         <button class="theme-toggle" data-theme-toggle>
-          <span data-theme-label>Dark</span>
+          <span class="theme-toggle__icon"></span>
+          <span class="theme-toggle__label" data-theme-label>Dark</span>
         </button>
 
         <button class="nav-toggle" data-nav-toggle>
@@ -78,34 +79,26 @@
         </div>
 
         <!-- FIXED SYSTEM -->
-        <div class="workflow-card">
+        <div class="workflow-card workflow-card--finance" data-workflow data-workflow-interval="2000">
           <div class="workflow-head compact">
             <h2>From activity → defensible numbers</h2>
           </div>
-          <div class="workflow-horizontal">
-            <div class="workflow-step-h animated-step" style="animation-delay: 0.1s">
-              <div class="step-icon">①</div>
-              <div class="step-content">
-                <h3>Structure</h3>
-                <p>All activity unified into one system.</p>
-              </div>
-            </div>
-            <div class="workflow-arrow">→</div>
-            <div class="workflow-step-h animated-step" style="animation-delay: 0.3s">
-              <div class="step-icon">②</div>
-              <div class="step-content">
-                <h3>Control</h3>
-                <p>Ownership, policy, and approvals defined.</p>
-              </div>
-            </div>
-            <div class="workflow-arrow">→</div>
-            <div class="workflow-step-h animated-step" style="animation-delay: 0.5s">
-              <div class="step-icon">③</div>
-              <div class="step-content">
-                <h3>Defend</h3>
-                <p>Numbers hold under audit and scrutiny.</p>
-              </div>
-            </div>
+          <div class="workflow-track">
+            <article class="workflow-step" data-workflow-step>
+              <span class="workflow-index">01</span>
+              <h3>Structure</h3>
+              <p class="step-summary">All activity unified into one system.</p>
+            </article>
+            <article class="workflow-step" data-workflow-step>
+              <span class="workflow-index">02</span>
+              <h3>Control</h3>
+              <p class="step-summary">Ownership, policy, and approvals defined.</p>
+            </article>
+            <article class="workflow-step" data-workflow-step>
+              <span class="workflow-index">03</span>
+              <h3>Defend</h3>
+              <p class="step-summary">Numbers hold under audit and scrutiny.</p>
+            </article>
           </div>
         </div>
 
