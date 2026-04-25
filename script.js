@@ -1,16 +1,33 @@
-// Back to Top button show/hide logic
-document.addEventListener("DOMContentLoaded", function () {
+// Back to Top button appears only after cursor activity.
+document.addEventListener("DOMContentLoaded", () => {
   const backToTopBtn = document.getElementById("backToTop");
   if (!backToTopBtn) return;
-  function toggleBackToTop() {
-    if (window.scrollY > 40) {
-      backToTopBtn.style.display = "block";
-    } else {
-      backToTopBtn.style.display = "none";
+
+  const minScrollY = 120;
+  const idleDelayMs = 1200;
+  let idleTimerId = null;
+
+  const updateVisibility = (isActivePointer = false) => {
+    const canBeVisible = window.scrollY > minScrollY;
+    backToTopBtn.classList.toggle("is-visible", canBeVisible);
+    backToTopBtn.classList.toggle("is-awake", canBeVisible && isActivePointer);
+  };
+
+  const onPointerMove = () => {
+    updateVisibility(true);
+
+    if (idleTimerId !== null) {
+      window.clearTimeout(idleTimerId);
     }
-  }
-  toggleBackToTop();
-  window.addEventListener("scroll", toggleBackToTop);
+
+    idleTimerId = window.setTimeout(() => {
+      updateVisibility(false);
+    }, idleDelayMs);
+  };
+
+  updateVisibility(false);
+  window.addEventListener("scroll", () => updateVisibility(false), { passive: true });
+  window.addEventListener("pointermove", onPointerMove, { passive: true });
 });
 const root = document.documentElement;
 const themeToggle = document.querySelector("[data-theme-toggle]");
