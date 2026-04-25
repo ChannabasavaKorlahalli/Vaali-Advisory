@@ -14,8 +14,7 @@
     (() => {
       try {
         const savedTheme = localStorage.getItem("vaaliTheme");
-        const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-        document.documentElement.dataset.theme = savedTheme || systemTheme;
+        document.documentElement.dataset.theme = savedTheme || "dark";
       } catch (error) {
         document.documentElement.dataset.theme = "dark";
       }

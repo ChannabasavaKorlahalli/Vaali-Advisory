@@ -32,10 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
 const root = document.documentElement;
 const themeToggle = document.querySelector("[data-theme-toggle]");
 
-const getSystemTheme = () =>
-  window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+const getDefaultTheme = () => "dark";
 
-const getActiveTheme = () => root.dataset.theme || getSystemTheme();
+const getActiveTheme = () => root.dataset.theme || getDefaultTheme();
 
 const syncThemeToggle = (theme) => {
   if (!themeToggle) {
