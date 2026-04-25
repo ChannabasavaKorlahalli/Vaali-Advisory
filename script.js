@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const minScrollY = 120;
   const idleDelayMs = 1200;
   let idleTimerId = null;
+  let pointerUpdatePending = false;
 
   const updateVisibility = (isActivePointer = false) => {
     const canBeVisible = window.scrollY > minScrollY;
@@ -14,7 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const onPointerMove = () => {
-    updateVisibility(true);
+    if (!pointerUpdatePending) {
+      pointerUpdatePending = true;
+      window.requestAnimationFrame(() => {
+        updateVisibility(true);
+        pointerUpdatePending = false;
+      });
+    }
 
     if (idleTimerId !== null) {
       window.clearTimeout(idleTimerId);
@@ -26,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   updateVisibility(false);
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
   window.addEventListener("scroll", () => updateVisibility(false), { passive: true });
   window.addEventListener("pointermove", onPointerMove, { passive: true });
 });
@@ -194,49 +204,3 @@ if (workflowControllers.size && "IntersectionObserver" in window && !prefersRedu
   workflowControllers.forEach((_, workflow) => workflowObserver.observe(workflow));
 }
 
-const form = document.querySelector("[data-contact-form]");
-const message = document.querySelector("[data-form-message]");
-
-if (form && message) {
-  const storageKey = "vaaliAdvisoryLeads";
-  const legacyStorageKey = "VaaliAdvisoryLeads";
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-    const fields = Object.fromEntries(formData.entries());
-    const required = ["name", "email", "company", "service", "message"];
-
-    const missingField = required.find((key) => !String(fields[key] || "").trim());
-    if (missingField) {
-      message.textContent = "Please complete all required fields before sending.";
-      message.className = "form-message error";
-      return;
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(String(fields.email).trim())) {
-      message.textContent = "Please enter a valid work email address.";
-      message.className = "form-message error";
-      return;
-    }
-
-    const existingSubmissions = JSON.parse(
-      localStorage.getItem(storageKey) || localStorage.getItem(legacyStorageKey) || "[]"
-    );
-
-    existingSubmissions.push({
-      ...fields,
-      submittedAt: new Date().toISOString()
-    });
-
-    localStorage.setItem(storageKey, JSON.stringify(existingSubmissions));
-    localStorage.removeItem(legacyStorageKey);
-
-    form.reset();
-    message.textContent =
-      "Thanks. We have captured your context and will respond within one business day.";
-    message.className = "form-message success";
-  });
-}
