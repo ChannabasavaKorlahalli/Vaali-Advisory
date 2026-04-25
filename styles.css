@@ -600,6 +600,85 @@ h3 {
   font-size: 1.4rem;
 }
 
+.summary-card[data-workflow-step] {
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.summary-card[data-workflow-step].is-complete,
+.summary-card[data-workflow-step].is-current {
+  border-color: color-mix(in srgb, var(--brand) 30%, transparent);
+  background: var(--workflow-active-bg);
+}
+
+.summary-card[data-workflow-step].is-current {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px color-mix(in srgb, var(--bg-deep) 34%, transparent);
+}
+
+.cards-3[data-workflow] .summary-card[data-workflow-step] {
+  position: relative;
+  overflow: visible;
+}
+
+.cards-3[data-workflow] .summary-card[data-workflow-step]:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -0.92rem;
+  width: 0.62rem;
+  height: 0.62rem;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-radius: 50%;
+  opacity: 0.78;
+  background: radial-gradient(
+    circle at 32% 28%,
+    var(--brand-bright) 0%,
+    color-mix(in srgb, var(--brand) 78%, var(--brand-bright) 22%) 48%,
+    color-mix(in srgb, var(--brand) 48%, transparent) 100%
+  );
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--brand) 24%, transparent),
+    0 0 12px color-mix(in srgb, var(--brand) 24%, transparent);
+  pointer-events: none;
+}
+
+.cards-3[data-workflow] .summary-card[data-workflow-step]:not(:last-child)::after {
+  content: "›";
+  position: absolute;
+  top: 50%;
+  right: -1.35rem;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-family: "Sora", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: color-mix(in srgb, var(--brand-bright) 74%, var(--brand) 26%);
+  opacity: 0.66;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--brand) 20%, transparent);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .cards-3[data-workflow] .summary-card[data-workflow-step]:not(:last-child)::before {
+    top: auto;
+    bottom: -0.96rem;
+    right: 50%;
+    width: 0.58rem;
+    height: 0.58rem;
+    transform: translateX(50%);
+  }
+
+  .cards-3[data-workflow] .summary-card[data-workflow-step]:not(:last-child)::after {
+    top: auto;
+    right: 50%;
+    bottom: -1.42rem;
+    transform: translateX(50%) rotate(90deg);
+  }
+}
+
 .section-heading {
   display: flex;
   justify-content: space-between;
