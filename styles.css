@@ -654,6 +654,68 @@ h3 {
   gap: 0.9rem;
 }
 
+.detail-card--outputs {
+  gap: 0.55rem;
+}
+
+.detail-card--outputs h2 + .outputs-list {
+  margin-top: 0.15rem;
+}
+
+.outputs-list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.outputs-list li {
+  position: relative;
+  margin: 0;
+  padding: 0.85rem 0.95rem 0.85rem 2.2rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--soft-card-bg);
+  color: var(--text);
+  line-height: 1.45;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+  animation: outputs-reveal 520ms ease both;
+}
+
+.outputs-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  top: 1.2rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-bright), var(--brand));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+.outputs-list li:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--brand) 30%, transparent);
+  background: var(--workflow-active-bg);
+}
+
+.outputs-list li:nth-child(1) { animation-delay: 70ms; }
+.outputs-list li:nth-child(2) { animation-delay: 140ms; }
+.outputs-list li:nth-child(3) { animation-delay: 210ms; }
+.outputs-list li:nth-child(4) { animation-delay: 280ms; }
+
+@keyframes outputs-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .offer-card--finance {
   border-color: color-mix(in srgb, var(--brand) 26%, transparent);
 }
@@ -742,6 +804,107 @@ h3 {
   background: linear-gradient(90deg, var(--brand), var(--brand-bright));
 }
 
+.workflow-card--finance {
+  width: 100%;
+  max-width: 520px;
+  padding: 0.85rem;
+  align-self: start;
+}
+
+.workflow-card--finance .workflow-head.compact {
+  margin-bottom: 0.45rem;
+}
+
+.workflow-card--finance .workflow-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+}
+
+.workflow-card--finance .workflow-track::before,
+.workflow-card--finance .workflow-track::after {
+  display: none;
+}
+
+.workflow-card--finance .workflow-step {
+  min-height: 0;
+  padding: 1rem 1rem 1rem 3.75rem;
+  align-items: start;
+}
+
+.workflow-card--finance .workflow-index {
+  top: 1rem;
+  left: 1rem;
+}
+
+.workflow-card--finance .workflow-step h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.workflow-card--finance .workflow-step .step-summary {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.workflow-card--growth {
+  width: 100%;
+  max-width: 520px;
+  padding: 0.85rem;
+  align-self: start;
+}
+
+.workflow-card--growth .workflow-head {
+  margin-bottom: 0.45rem;
+}
+
+.workflow-card--growth .workflow-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+}
+
+.workflow-card--growth .workflow-track::before,
+.workflow-card--growth .workflow-track::after {
+  display: none;
+}
+
+.workflow-card--growth .workflow-step {
+  min-height: 0;
+  padding: 1rem 1rem 1rem 3.75rem;
+  align-items: start;
+  gap: 0.35rem;
+}
+
+.workflow-card--growth .workflow-index {
+  top: 1rem;
+  left: 1rem;
+}
+
+.workflow-card--growth .workflow-step h3,
+.workflow-card--growth .workflow-step .step-summary,
+.workflow-card--growth .workflow-step .step-detail {
+  margin: 0;
+}
+
+.workflow-card--growth .workflow-step .step-summary,
+.workflow-card--growth .workflow-step .step-detail {
+  color: var(--muted);
+}
+
+.workflow-card--growth .workflow-step .step-summary {
+  line-height: 1.4;
+}
+
+.workflow-card--growth .workflow-step .step-detail {
+  line-height: 1.45;
+}
+
 .workflow-step {
   position: relative;
   display: grid;
@@ -779,7 +942,7 @@ h3 {
 
 .workflow-card--growth .workflow-step.is-complete,
 .workflow-card--growth .workflow-step.is-current {
-  border-color: color-mix(in srgb, var(--cool) 32%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 30%, transparent);
 }
 
 .workflow-step.is-complete .workflow-index,
@@ -791,7 +954,7 @@ h3 {
 
 .workflow-card--growth .workflow-step.is-complete .workflow-index,
 .workflow-card--growth .workflow-step.is-current .workflow-index {
-  background: linear-gradient(135deg, #c3d4f4, var(--cool));
+  background: linear-gradient(135deg, var(--brand-bright), var(--brand));
 }
 
 .workflow-step.is-current {
