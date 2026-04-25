@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vaali Advisory | Finance Discipline and Growth Systems for Web3</title>
   <meta name="description" content="Vaali Advisory helps web3 startups fix finance and growth systems before scale, audits, and revenue pressure expose weaknesses.">
+  <link rel="canonical" href="https://vaaliadvisory.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
   <script>
     (() => {
+      if (window.location.pathname === "/index" || window.location.pathname === "/index.html") {
+        window.location.replace("/");
+        return;
+      }
+
       try {
         const savedTheme = localStorage.getItem("vaaliTheme");
         const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
