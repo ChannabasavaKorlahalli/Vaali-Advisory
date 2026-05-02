@@ -232,6 +232,11 @@ li + li {
   padding-top: 0;
 }
 
+.site-header {
+  position: relative;
+  z-index: 1200;
+}
+
 .nav-wrap,
 .container {
   width: min(var(--max-width), calc(100% - 2rem));
@@ -1208,8 +1213,8 @@ textarea:focus {
   }
 
   .nav-links {
-    position: absolute;
-    top: calc(100% + 0.6rem);
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 5.2rem);
     right: 1rem;
     left: 1rem;
     display: none;
@@ -1220,6 +1225,9 @@ textarea:focus {
     border: 1px solid var(--header-border);
     background: var(--surface-strong);
     box-shadow: var(--shadow);
+    z-index: 1300;
+    max-height: calc(100vh - env(safe-area-inset-top, 0px) - 7rem);
+    overflow-y: auto;
   }
 
   .nav-links.open {
